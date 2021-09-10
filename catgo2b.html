@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="Viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+
+<div id="data">
+  <div id="Score"><img  id="tt"src="trophet.png"></div>
+  <p id="result">0</p>
+  </div>
+<div id="content">
+<div id="timeur">
+  <h6 id="time">60S</h6>
+  </div>
+  <img src="left.png" onclick="back()">
+
+  <div id="message">Guess</div>
+<input onfocus=this.value=''  type="number" name="" placeholder="Try" id="input">
+<button id="b1" onclick="play()">Guess</button>
+<button  onclick="reload()" id="b2">Play again</button>
+</div>
+
+<script type="text/javascript">
+  let timeur=60;
+  let score = 0
+
+function vv(){ 
+   let b1= localStorage.score3b;
+    let number = document.getElementById("result");
+    if (localStorage.score3b) 
+    {
+ document.getElementById("result").innerHTML=b1;
+    }else{
+      document.getElementById("result").innerHTML="0";
+    }
+  
+   
+     
+         
+ } 
+ vv();
+
+
+
+ let put=document.querySelector("#b1");
+let again= document.querySelector("#b2");
+
+let name= document.querySelector("#name");
+let data=[300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,440,441,442,443,444,445,446,447,448,449,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,509,510,511,512,513,514,515,516,517,518,519,520,521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,536,537,538,539,540,541,542,543,544,545,546,547,548,549,550,551,552,553,554,555,556,557,558,559,560,561,562,563,564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,579,580,581,582,583,584,585,586,587,588,589,590,591,592,593,594,595,596,597,598,599,600];
+let random = Math.floor(Math.random()*data.length);
+let randomc=data[random]
+
+
+function setMessage(msg){
+document.getElementById("message").innerHTML =msg;
+ 
+}
+
+input.addEventListener("keyup",function(event){
+  if(event.keyCode===13){
+    event.preventDefault();
+    document.querySelector("#b1").click();
+  }
+ });
+function play(){
+   let color= ["red", "blue", "green", "yellow", "Maroon", "Orange", "Orchid", "Indigo", "FireBrick", "DarkRed","Tomato","Gray"];
+  let randomColor=Math.floor(Math.random()*color.length);
+   let give = color[randomColor];
+ document.getElementById("message").style.color=give;
+
+   let input = document.getElementById("input").value;
+
+   if (input<randomc){
+    setMessage("Your number is too low ")
+    document.getElementById('input').value = ""
+   } else if(input > randomc){
+    setMessage("Your number is too High")
+    document.getElementById('input').value = ""
+   }
+      if (randomc == input){
+
+   if(typeof(Storage) !=="undefined"){
+
+   if(localStorage.score3b) {
+    localStorage.score3b = Number(localStorage.score3b)+1;
+   }else {
+     localStorage.score3b =1;
+   }
+  let score6b =  document.getElementById("result").innerHTML= localStorage.score3b;
+ 
+
+   
+   }
+    
+        setMessage("Congratulation the number was "+ randomc );
+          
+        put.style.display="none";
+      document.getElementById("input").style.display="none";
+                  
+          again.style.display="block" ;
+
+          clearInterval(x);
+    }
+
+ 
+}
+
+
+
+
+
+
+
+
+function reload(){
+  location.reload();
+ if (location.reload ==true()){
+document.getElementById("result").innerHTML= number;
+ }
+
+}
+
+function back(){
+ window.history.back();
+}
+ var x= setInterval(function(){
+ document.querySelector("#time").innerHTML= timeur + "S";
+ timeur = timeur -1;
+
+
+ if (timeur<0) {
+  clearInterval(x);
+   setMessage("Sorry, the number was "+ randomc );
+     put.style.display="none";
+      document.getElementById("input").style.display="none";
+                  
+          again.style.display="block" ;
+ }
+
+},1000)
+</script>
+</body>
+</html>

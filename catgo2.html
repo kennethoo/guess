@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="Viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+
+<div id="data">
+  <div id="Score"><img  id="tt"src="trophet.png"></div>
+  <p id="result">0</p>
+  </div>
+<div id="content">
+	<div id="timeur">
+  <h6 id="time">25S</h6>
+  </div>
+	<img src="left.png" onclick="back()">
+
+	<div id="message">Guess</div>
+<input onfocus=this.value=''  type="number" name="" placeholder="Try" id="input">
+<button id="b1" onclick="play()">Guess</button>
+<button  onclick="reload()" id="b2">Play again</button>
+</div>
+
+<script type="text/javascript">
+	 let timeur=25;
+	let score = 0
+
+function vv(){ 
+   let f1= localStorage.score1;
+    let number = document.getElementById("result");
+    if (localStorage.score1) 
+    {
+ document.getElementById("result").innerHTML=f1;
+    }else{
+      document.getElementById("result").innerHTML="0";
+    }
+  
+   
+     
+         
+ } 
+ vv();
+
+
+
+ let put=document.querySelector("#b1");
+let again= document.querySelector("#b2");
+
+let name= document.querySelector("#name");
+let data=[100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200];
+let random = Math.floor(Math.random()*data.length);
+ let randomk=data[random]
+console.log(randomk)
+function setMessage(msg){
+document.getElementById("message").innerHTML =msg;
+ 
+}
+
+ input.addEventListener("keyup",function(event){
+  if(event.keyCode===13){
+    event.preventDefault();
+    document.querySelector("#b1").click();
+  }
+ });
+function play(){
+	 let color= ["red", "blue", "green", "yellow", "Maroon", "Orange", "Orchid", "Indigo", "FireBrick", "DarkRed","Tomato","Gray"];
+	let randomColor=Math.floor(Math.random()*color.length);
+	 let give = color[randomColor];
+ document.getElementById("message").style.color=give;
+
+   let input = document.getElementById("input").value;
+
+   if (input<randomk){
+   	setMessage("Your number is too low ")
+    document.getElementById('input').value = ""
+   } else if(input > randomk){
+   	setMessage("Your number is too High")
+    document.getElementById('input').value = ""
+   }
+      if (randomk == input){
+
+   if(typeof(Storage) !=="undefined"){
+
+   if(localStorage.score1) {
+   	localStorage.score1 = Number(localStorage.score1)+1;
+   }else {
+   	 localStorage.score1 =1;
+   }
+  let score3 =  document.getElementById("result").innerHTML= localStorage.score1;
+ 
+
+   
+   }
+    
+        setMessage("Congratulation the number was "+ randomk );
+          
+           
+        put.style.display="none";
+      document.getElementById("input").style.display="none";
+                  
+          again.style.display="block" ;
+ 	clearInterval(x);
+    }
+
+ 
+}
+
+
+
+
+
+
+
+
+function reload(){
+	location.reload();
+ if (location.reload ==true()){
+document.getElementById("result").innerHTML= number;
+ }
+
+}
+
+function back(){
+ window.history.back();
+}
+
+  
+
+var x= setInterval(function(){
+ document.querySelector("#time").innerHTML= timeur + "S";
+ timeur = timeur -1;
+
+
+ if (timeur<0) {
+ 	
+ 	clearInterval(x);
+   setMessage("Sorry, the number was "+ randomk );
+     put.style.display="none";
+      document.getElementById("input").style.display="none";
+                  
+          again.style.display="block" ;
+ }
+
+},1000)
+</script>
+</body>
+</html>

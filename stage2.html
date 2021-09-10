@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="Viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="particles-js"></div> 
+ <center><h1>Stage 2</h1></center>
+
+  <img src="left.png" onclick="back()">
+<div id="content">
+<a href="catgo1a.html">0-200</a>
+<a href="catgo2a.html">200-400</a>
+<a href="catgo3a.html">400-600</a>
+<a href="catgo4a.html">600-800</a>
+<a href="catgo5a.html">800-1000</a>
+</div>
+<style type="text/css">
+	
+	img{
+		position:absolute;
+		top: 0;
+		left: 0;
+
+	}
+
+	body{
+      font-family: arial;
+		background:#6D3434;
+	}
+
+		a:active {
+  /** Remove 3D Block Effect on Click **/
+  box-shadow: none;
+  top: 10px;
+  margin-bottom: 0;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white
+}
+
+a:active,
+a:focus {
+
+  outline: 0;
+}
+	#content{
+       position:  absolute;
+       transform: translate(-50%,-50%);
+       top: 50%;
+       left: 50%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       padding: 10%;
+       width: 100%;
+       height:60%;
+       position: fixed;
+       animation: 2s v
+	}
+
+a{
+	text-decoration: none;
+	width: 70%;
+	height:10vh;
+	background-color:#333;
+	margin: 10px;
+	display: flex;
+       justify-content: center;
+       align-items: center;
+       color: white;
+       border-radius: 60px;
+       border:  1px  solid #191919;
+        box-shadow: 0 10px 0 0 #191919;
+}
+h1{
+	position: relative;
+	top: 10px;
+}
+h2{
+	position: relative;
+	top: 20px;
+}
+@keyframes v{
+ from{
+  transform: translate(-50%,-50%);
+       top: 50%;
+       left: -50%;
+ }
+ to{
+transform: translate(-50%,-50%);
+       top: 50%;
+       left: 50%;
+ } 
+}
+#particles-js {
+    width: 100%;
+    height: 100%;
+   background:#6D3434;
+    background-size: cover;
+    background-position: 50% 50%;
+   
+    position: fixed;
+    
+}
+canvas {
+  
+    vertical-align: bottom;
+}
+</style>
+<script type="text/javascript" src="particles.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+	function back(){
+ window.history.back();
+}
+
+</script>
+</body>
+</html>
